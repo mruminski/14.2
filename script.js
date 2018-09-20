@@ -22,25 +22,26 @@ var movies = [
   }
 ];
 
+var MovieArr = React.createClass({
+  propTypes: {
+    movieArr: React.PropTypes.array.isRequired,
+  },
+  render: function() {
+    
+    
+    return (
+      
+    )
+  },
+});
+
 var Movie = React.createClass({
   propTypes: {
     movie: React.PropTypes.object.isRequired,
   },
   render: function() {
     return (
-
-    )
-  },
-});
-
-var MovieArr = React.createClass({
-  propTypes: {
-    movieArr: React.PropTypes.array.isRequired,
-
-  },
-  render: function() {
-    return (
-
+      
     )
   },
 });
@@ -51,7 +52,7 @@ var MovieTitle = React.createClass({
   },
   render: function() {
     return (
-
+      React.createElement("h2", {}, this.props.movieTitle)
     )
   },
 });
@@ -62,7 +63,7 @@ var MovieCategory = React.createClass({
   },
   render: function() {
     return (
-
+      React.createElement("p", {}, this.props.movieCategory)
     )
   },
 });
@@ -73,26 +74,14 @@ var MoviePoster = React.createClass({
   },
   render: function() {
     return (
-
+      React.createElement("img", { src: this.props.moviePoster })
     )
   },
 });
 
-var moviesEl = movies.map(function(movie) {
-  return React.createElement(
-    "li",
-    { key: movie.id },
-    React.createElement("h2", {}, movie.title),
-    React.createElement("p", {}, movie.category),
-    React.createElement("img", { src: movie.poster })
-  );
-});
-
-var element = React.createElement(
-  "div",
-  {},
+var element = React.createElement("div", {},
   React.createElement("h1", {}, "Movie list"),
-  React.createElement("ul", {}, moviesEl)
+  React.createElement(MovieArr, {movieArr: movies})
 );
 
 ReactDOM.render(element, document.getElementById("app"));
