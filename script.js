@@ -27,10 +27,11 @@ var MovieArr = React.createClass({
     movieArr: React.PropTypes.array.isRequired,
   },
   render: function() {
-    
-    
+    var elem = this.props.movieArr.map(function(item){
+      return React.createElement(Movie, {movie: item, key: item.id})
+    });
     return (
-      
+      React.createElement("ul", {}, elem)
     )
   },
 });
