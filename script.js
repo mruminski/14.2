@@ -22,6 +22,62 @@ var movies = [
   }
 ];
 
+var Movie = React.createClass({
+  propTypes: {
+    movie: React.PropTypes.object.isRequired,
+  },
+  render: function() {
+    return (
+
+    )
+  },
+});
+
+var MovieArr = React.createClass({
+  propTypes: {
+    movieArr: React.PropTypes.array.isRequired,
+
+  },
+  render: function() {
+    return (
+
+    )
+  },
+});
+
+var MovieTitle = React.createClass({
+  propTypes: {
+    movieTitle: React.PropTypes.string.isRequired,
+  },
+  render: function() {
+    return (
+
+    )
+  },
+});
+
+var MovieCategory = React.createClass({
+  propTypes: {
+    movieCategory: React.PropTypes.string.isRequired,
+  },
+  render: function() {
+    return (
+
+    )
+  },
+});
+
+var MoviePoster = React.createClass({
+  propTypes: {
+    moviePoster: React.PropTypes.string.isRequired,
+  },
+  render: function() {
+    return (
+
+    )
+  },
+});
+
 var moviesEl = movies.map(function(movie) {
   return React.createElement(
     "li",
