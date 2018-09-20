@@ -41,7 +41,11 @@ var Movie = React.createClass({
   },
   render: function() {
     return (
-      
+      React.createElement("li", {},
+        React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
+        React.createElement(MovieCategory, {movieCategory: this.props.movie.category}),
+        React.createElement(MoviePoster, {moviePoster: this.props.movie.poster})
+      )
     )
   },
 });
