@@ -4,21 +4,24 @@ var movies = [
     title: "Where Eagles Dare",
     category: "Action, war",
     poster:
-      "https://m.media-amazon.com/images/M/MV5BNGE3ZWZiNzktMDIyOC00ZmVhLThjZTktZjQ5NjI4NGVhMDBlXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SY1000_CR0,0,670,1000_AL_.jpg"
+      "https://m.media-amazon.com/images/M/MV5BNGE3ZWZiNzktMDIyOC00ZmVhLThjZTktZjQ5NjI4NGVhMDBlXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_SY1000_CR0,0,670,1000_AL_.jpg",
+    alt: "Where Eagles Dare poster"
   },
   {
     id: 2,
     title: "The Odd Couple",
     category: "Comedy",
     poster:
-      "https://m.media-amazon.com/images/M/MV5BZDVhNzQxZDEtMzcyZC00ZDg1LWFkZDctOWYxZTY0ZmYzYjc2XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_SY1000_CR0,0,657,1000_AL_.jpg"
+      "https://m.media-amazon.com/images/M/MV5BZDVhNzQxZDEtMzcyZC00ZDg1LWFkZDctOWYxZTY0ZmYzYjc2XkEyXkFqcGdeQXVyMjA0MDQ0Mjc@._V1_SY1000_CR0,0,657,1000_AL_.jpg",
+    alt: "The Odd Couple poster"
   },
   {
     id: 3,
     title: "The Peacemaker",
     category: "Action, Thriller",
     poster:
-      "https://m.media-amazon.com/images/M/MV5BMjQ0OTNjOTMtYWU1MC00MWQwLTllMmMtNWZmYmE3NDY0ZTgxXkEyXkFqcGdeQXVyMTE2OTg4Mjg@._V1_.jpg"
+      "https://m.media-amazon.com/images/M/MV5BMjQ0OTNjOTMtYWU1MC00MWQwLTllMmMtNWZmYmE3NDY0ZTgxXkEyXkFqcGdeQXVyMTE2OTg4Mjg@._V1_.jpg",
+    alt: "The Peacemaker poster`"
   }
 ];
 
@@ -45,7 +48,8 @@ var Movie = React.createClass({
       React.createElement("li", {},
         React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
         React.createElement(MovieCategory, {movieCategory: this.props.movie.category}),
-        React.createElement(MoviePoster, {moviePoster: this.props.movie.poster})
+        React.createElement(MoviePoster, {moviePoster: this.props.movie.poster,
+          movieAlt: this.props.movie.alt})
       )
     )
   },
@@ -76,10 +80,12 @@ var MovieCategory = React.createClass({
 var MoviePoster = React.createClass({
   propTypes: {
     moviePoster: React.PropTypes.string.isRequired,
+    movieAlt: React.PropTypes.string.isRequired,
   },
   render: function() {
     return (
-      React.createElement("img", { src: this.props.moviePoster })
+      React.createElement("img", { src: this.props.moviePoster,
+        alt: this.props.movieAlt })
     )
   },
 });
