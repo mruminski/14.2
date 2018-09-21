@@ -21,16 +21,18 @@ var movies = [
     category: "Action, Thriller",
     poster:
       "https://m.media-amazon.com/images/M/MV5BMjQ0OTNjOTMtYWU1MC00MWQwLTllMmMtNWZmYmE3NDY0ZTgxXkEyXkFqcGdeQXVyMTE2OTg4Mjg@._V1_.jpg",
-    alt: "The Peacemaker poster`"
+    alt: "The Peacemaker poster"
   }
 ];
+
+const props = this.props;
 
 var MovieArr = React.createClass({
   propTypes: {
     movieArr: React.PropTypes.array.isRequired,
   },
   render: function() {
-    var elem = this.props.movieArr.map(function(item){
+    var elem = props.movieArr.map(function(item){
       return React.createElement(Movie, {movie: item, key: item.id})
     });
     return (
@@ -46,10 +48,10 @@ var Movie = React.createClass({
   render: function() {
     return (
       React.createElement("li", {},
-        React.createElement(MovieTitle, {movieTitle: this.props.movie.title}),
-        React.createElement(MovieCategory, {movieCategory: this.props.movie.category}),
-        React.createElement(MoviePoster, {moviePoster: this.props.movie.poster,
-          movieAlt: this.props.movie.alt})
+        React.createElement(MovieTitle, {movieTitle: props.movie.title}),
+        React.createElement(MovieCategory, {movieCategory: props.movie.category}),
+        React.createElement(MoviePoster, {moviePoster: props.movie.poster,
+          movieAlt: props.movie.alt})
       )
     )
   },
@@ -61,7 +63,7 @@ var MovieTitle = React.createClass({
   },
   render: function() {
     return (
-      React.createElement("h2", {}, this.props.movieTitle)
+      React.createElement("h2", {}, props.movieTitle)
     )
   },
 });
@@ -72,7 +74,7 @@ var MovieCategory = React.createClass({
   },
   render: function() {
     return (
-      React.createElement("p", {}, this.props.movieCategory)
+      React.createElement("p", {}, props.movieCategory)
     )
   },
 });
@@ -84,8 +86,13 @@ var MoviePoster = React.createClass({
   },
   render: function() {
     return (
-      React.createElement("img", { src: this.props.moviePoster,
-        alt: this.props.movieAlt })
+      React.createElement(
+        "img", 
+        {
+          src: props.moviePoster,
+          alt: props.movieAlt
+        }
+      )
     )
   },
 });
